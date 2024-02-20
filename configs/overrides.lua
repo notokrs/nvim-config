@@ -64,7 +64,7 @@ M.mason = {
     "xmlformatter",
 
     -- python
-    "ruff-lsp",
+    "python-lsp-server",
     "pyink",
 
     -- golang

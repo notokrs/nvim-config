@@ -4,21 +4,21 @@ local o = vim.o
 local g = vim.g
 
 local enable_providers = {
-	"node",
-	"python3",
-	"ruby",
+  "node",
+  "python3",
+  "ruby",
 }
 
 -- Auto resize panes when resizing nvim window
 autocmd("VimResized", {
-	pattern = "*",
-	command = "tabdo wincmd =",
+  pattern = "*",
+  command = "tabdo wincmd =",
 })
 
 -- Providers
 for _, provider in ipairs(enable_providers) do
-	g["loaded_" .. provider .. "_provider"] = nil
-	vim.cmd("runtime " .. provider)
+  g["loaded_" .. provider .. "_provider"] = nil
+  vim.cmd("runtime " .. provider)
 end
 
 -- General Settings
@@ -34,14 +34,14 @@ o.foldenable = true
 o.updatetime = 200
 
 autocmd({
-	"WinScrolled",
-	"BufWinEnter",
-	"CursorHold",
-	"InsertLeave",
-	"BufModifiedSet",
+  "WinScrolled",
+  "BufWinEnter",
+  "CursorHold",
+  "InsertLeave",
+  "BufModifiedSet",
 }, {
-	group = create_group("barbecue.updater", {}),
-	callback = function()
-		require("barbecue.ui").update()
-	end,
+  group = create_group("barbecue.updater", {}),
+  callback = function()
+    require("barbecue.ui").update()
+  end,
 })

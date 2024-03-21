@@ -4,6 +4,10 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 
+-- LSP module configs file
+local lua_ls_config = require("custom.configs.lsp.lua_ls")
+local tailwindcss_config = require("custom.configs.lsp.tailwindcss")
+
 local servers = {
 	html = {},
 	cssls = {},
@@ -11,28 +15,14 @@ local servers = {
 	intelephense = {},
 	bashls = {},
 	svelte = {},
-	tailwindcss = {
-		filetypes = {
-			"svelte",
-			"vue",
-			"javascriptreact",
-			"typescriptreact",
-		},
-	},
+	tailwindcss = tailwindcss_config,
+	lua_ls = lua_ls_config,
 }
--- local servers = mason_lspconfig.get_installed_servers()
 
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
 }
-
--- for _, lsp in ipairs(servers) do
--- 	lspconfig[lsp].setup({
--- 		on_attach = on_attach,
--- 		capabilities = capabilities,
--- 	})
--- end
 
 mason_lspconfig.setup({
 	ensure_installed = vim.tbl_keys(servers),
@@ -43,7 +33,7 @@ mason_lspconfig.setup_handlers({
 		lspconfig[server_name].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			settings = servers[server_name],
+			settings = (servers[server_name] or {}).settings,
 			filetypes = (servers[server_name] or {}).filetypes,
 		})
 	end,

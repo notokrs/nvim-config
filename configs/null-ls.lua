@@ -6,23 +6,14 @@ end
 
 local b = null_ls.builtins
 
+-- null-ls module configs file
+local prettier_config = require("custom.configs.null-ls.prettier")
+
 local sources = {
   -- Formatter
   -- prettier
   b.formatting.prettier.with({
-    filetypes = {
-      "html",
-      "markdown",
-      "css",
-      "scss",
-      "svelte",
-      "javascript",
-      "typescript",
-      "json",
-      "javascriptreact",
-      "typescriptreact",
-      "vue",
-    },
+    prettier_config,
   }),
   -- Lua
   b.formatting.stylua,
@@ -36,7 +27,7 @@ local sources = {
   -- python
   b.formatting.pyink,
   -- golang
-  b.formatting.gofumpt
+  b.formatting.gofumpt,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

@@ -1,4 +1,4 @@
-local env = require("custom.env")
+local env = require("env")
 local opts = {}
 
 opts = {

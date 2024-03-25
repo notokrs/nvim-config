@@ -1,3 +1,5 @@
+require "nvchad.options"
+
 local autocmd = vim.api.nvim_create_autocmd
 local create_group = vim.api.nvim_create_augroup
 local o = vim.o
@@ -33,15 +35,15 @@ o.foldenable = true
 
 -- barbecue.vim
 o.updatetime = 200
-autocmd({
-  "WinScrolled",
-  "BufWinEnter",
-  "CursorHold",
-  "InsertLeave",
-  "BufModifiedSet",
-}, {
-  group = create_group("barbecue.updater", {}),
-  callback = function()
-    require("barbecue.ui").update()
-  end,
-})
+-- autocmd({
+--   "WinScrolled",
+--   "BufWinEnter",
+--   "CursorHold",
+--   "InsertLeave",
+--   "BufModifiedSet",
+-- }, {
+--   group = create_group("barbecue.updater", {}),
+--   callback = function()
+--     require("barbecue.ui").update()
+--   end,
+-- })

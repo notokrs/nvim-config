@@ -1,12 +1,12 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 
 -- LSP module configs file
-local lua_ls_config = require("custom.configs.lsp.lua_ls")
-local tailwindcss_config = require("custom.configs.lsp.tailwindcss")
+local lua_ls_config = require("configs.lsp.lua_ls")
+local tailwindcss_config = require("configs.lsp.tailwindcss")
 
 local servers = {
 	html = {},

@@ -1,24 +1,17 @@
-local M = {}
+require("nvchad.mappings")
 
-M.general = {
-  i = {
-    ["<C-s>"] = { "<ESC> <cmd> w <CR>", "save file" },
-  },
-  n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<leader>tt"] = {
-      function()
-        require("base46").toggle_theme()
-      end,
-      "toggle theme",
-    },
-    ["<C-]>"] = { ">>", "Indent" },
-    ["<C-[>"] = { "<<", "Outdent" },
-  },
-  v = {
-    ["<C-]>"] = { "> gv", "Indent Selection" },
-    ["<C-[>"] = { "< gv", "Outdent Selection" },
-  },
-}
+local map = vim.keymap.set
 
-return M
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
+map({ "n", "i", "v" }, "<C-s>", "<ESC> <cmd> w <cr>")
+
+map({ "n" }, "<C-]>", ">>", { desc = "Indent" })
+map({ "n" }, "<C-[>", "<<", { desc = "Outdent" })
+
+map({ "v" }, "<C-]>", "> gv", { desc = "Indent Selection" })
+map({ "v" }, "<C-[>", "< gv", { desc = "Outdent Selection" })
+
+map({ "n" }, "<leader>tt", function()
+	require("base46").toggle_theme()
+end, { desc = "Toggle theme" })

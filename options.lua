@@ -22,8 +22,9 @@ for _, provider in ipairs(enable_providers) do
 end
 
 -- General Settings
--- nvim-ufo
 o.relativenumber = true
+
+-- nvim-ufo
 o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 o.foldcolumn = "1"
 o.foldlevel = 99
@@ -32,7 +33,6 @@ o.foldenable = true
 
 -- barbecue.vim
 o.updatetime = 200
-
 autocmd({
   "WinScrolled",
   "BufWinEnter",

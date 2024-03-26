@@ -17,6 +17,7 @@ local servers = {
 	svelte = {},
 	tailwindcss = tailwindcss_config,
 	lua_ls = lua_ls_config,
+	gopls = {},
 }
 
 capabilities.textDocument.foldingRange = {

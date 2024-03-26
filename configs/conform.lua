@@ -15,7 +15,7 @@ local options = {
 
 		php = { "phpcs" },
 
-		golang = { "gofumpt" },
+		go = { "gofumpt" },
 
 		python = { "pyink" },
 

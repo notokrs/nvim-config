@@ -143,6 +143,13 @@ local plugins = {
 		opts = require("configs.gemini"),
 		event = "VeryLazy",
 	},
+
+	-- eagle.nvim
+	{
+		"soulis-1256/eagle.nvim",
+		event = "LspAttach",
+		opts = {},
+	},
 }
 
 return plugins

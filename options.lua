@@ -33,6 +33,9 @@ o.foldlevel = 99
 o.foldlevelstart = 99
 o.foldenable = true
 
+-- eagle.nvim
+o.mousemoveevent = true
+
 -- barbecue.vim
 o.updatetime = 200
 autocmd({

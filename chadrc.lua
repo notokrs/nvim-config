@@ -1,19 +1,22 @@
 local M = {}
 local highlights = require("highlights")
 
-M.ui = {
-	theme = "ayu_dark",
-	theme_toggle = { "ayu_dark", "one_light" },
+M.base46 = {
+	theme = "yoru",
+	theme_toggle = { "one_light", "yoru" },
 	hl_override = highlights.override,
 	hl_add = highlights.add,
+}
+
+M.ui = {
 	statusline = {
 		theme = "vscode_colored",
 		-- separator_style = "round",
 	},
+}
 
-	nvdash = {
-		load_on_startup = true,
-	},
+M.nvdash = {
+	load_on_startup = true,
 }
 
 return M

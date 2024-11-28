@@ -37,7 +37,6 @@ local plugins = {
 	{ "williamboman/mason.nvim", opts = overrides.mason },
 	{ "nvim-tree/nvim-tree.lua", opts = overrides.nvimtree },
 
-	-- Install a plugin
 	-- Indent Blankline
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -52,9 +51,6 @@ local plugins = {
 
 	-- autotag
 	{ "windwp/nvim-ts-autotag", event = { "BufReadPost" } },
-
-	-- yuck
-	{ "elkowar/yuck.vim" },
 
 	-- silicon
 	{

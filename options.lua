@@ -47,6 +47,10 @@ autocmd({
 }, {
 	group = create_group("barbecue.updater", {}),
 	callback = function()
-		require("barbecue.ui").update()
+		local present, barbecue = pcall(require, "barbecue.ui")
+
+		if present then
+			barbecue.update()
+		end
 	end,
 })

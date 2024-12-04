@@ -1,3 +1,9 @@
+local present, hooks = pcall(require, "ibl.hooks")
+
+if not present then
+	return
+end
+
 local highlight = {
 	"RainbowRed",
 	"RainbowYellow",
@@ -8,7 +14,6 @@ local highlight = {
 	"RainbowCyan",
 }
 
-local hooks = require("ibl.hooks")
 hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 	vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
 	vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })

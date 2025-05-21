@@ -65,7 +65,7 @@ M.mason = {
 
 		-- python
 		"python-lsp-server",
-		"pyink",
+		"black",
 
 		-- golang
 		"gopls",

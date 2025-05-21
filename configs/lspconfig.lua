@@ -1,41 +1,28 @@
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 
--- LSP module configs file
-local lua_ls_config = require("configs.lsp.lua_ls")
-local tailwindcss_config = require("configs.lsp.tailwindcss")
-
-local servers = {
-	html = {},
-	cssls = {},
-	ts_ls = {},
-	intelephense = {},
-	bashls = {},
-	svelte = {},
-	tailwindcss = tailwindcss_config,
-	lua_ls = lua_ls_config,
-	gopls = {},
-}
+-- LSP module settings file
+local lua_ls_settings = require("configs.lsp.lua_ls")
+local tailwindcss_settings = require("configs.lsp.tailwindcss")
 
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
 }
 
-mason_lspconfig.setup({
-	ensure_installed = vim.tbl_keys(servers),
+vim.lsp.config("*", {
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
-mason_lspconfig.setup_handlers({
-	function(server_name)
-		lspconfig[server_name].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = (servers[server_name] or {}).settings,
-			filetypes = (servers[server_name] or {}).filetypes,
-		})
-	end,
+vim.lsp.config("lua_ls", {
+	settings = lua_ls_settings,
 })
+
+vim.lsp.config("tailwindcss", {
+	settings = tailwindcss_settings,
+})
+
+mason_lspconfig.setup()

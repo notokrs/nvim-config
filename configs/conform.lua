@@ -17,7 +17,7 @@ local options = {
 
 		go = { "gofumpt" },
 
-		python = { "pyink" },
+		python = { "black" },
 
 		xml = { "xmlformat" },
 
